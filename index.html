@@ -3,173 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black Gold TV | Premium Hub</title>
+    <title>Black Gold TV | Elite Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #D4AF37; --dark: #050505; --card-bg: #121212; --text: #FFFFFF; }
+        body { background-color: var(--dark); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; padding: 10px; display: flex; flex-direction: column; align-items: center; }
+        header { text-align: center; padding: 30px 0; border-bottom: 1px solid var(--gold); width: 100%; max-width: 1100px; margin-bottom: 20px; }
+        h1 { color: var(--gold); font-weight: 300; letter-spacing: 5px; text-transform: uppercase; margin: 0; font-size: 26px; }
         
-        body { 
-            background-color: var(--dark); 
-            color: var(--text); 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            padding: 10px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-        }
+        .nav-tools { margin-top: 15px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        .btn-tool { text-decoration: none; color: var(--gold); border: 1px solid var(--gold); padding: 8px 15px; border-radius: 20px; font-size: 10px; font-weight: bold; transition: 0.3s; text-transform: uppercase; }
+        .btn-tool:hover { background: var(--gold); color: black; }
 
-        header { 
-            text-align: center; 
-            padding: 30px 0; 
-            border-bottom: 1px solid var(--gold); 
-            width: 100%; 
-            max-width: 1000px; 
-            margin-bottom: 20px; 
-        }
-
-        h1 { color: var(--gold); font-weight: 300; letter-spacing: 5px; text-transform: uppercase; margin: 0; font-size: 24px; }
+        .section-title { width: 100%; max-width: 1100px; color: var(--gold); font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin: 30px 0 15px 0; border-left: 3px solid var(--gold); padding-left: 10px; font-weight: bold; }
         
-        .btn-grade {
-            display: inline-block;
-            margin-top: 15px;
-            text-decoration: none;
-            color: var(--gold);
-            border: 1px solid var(--gold);
-            padding: 10px 25px;
-            border-radius: 30px;
-            font-size: 11px;
-            font-weight: bold;
-            transition: 0.3s;
-            text-transform: uppercase;
-        }
+        .grid-tv { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; width: 100%; max-width: 1100px; }
+        
+        .channel-card { background: var(--card-bg); border: 1px solid #222; border-radius: 10px; padding: 15px; text-align: center; cursor: pointer; transition: 0.3s; text-decoration: none; color: white; display: flex; flex-direction: column; justify-content: center; height: 100px; }
+        .channel-card:hover { border-color: var(--gold); transform: translateY(-3px); background: #1a1a1a; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1); }
+        
+        .badge { font-size: 8px; background: var(--gold); color: black; padding: 2px 6px; border-radius: 4px; font-weight: bold; align-self: center; margin-bottom: 8px; }
+        h3 { margin: 0; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; }
+        p { font-size: 10px; color: #666; margin-top: 5px; }
 
-        .btn-grade:hover { background: var(--gold); color: black; }
+        .footer { margin: 60px 0 30px 0; color: #333; font-size: 10px; letter-spacing: 2px; text-align: center; border-top: 1px solid #222; width: 100%; padding-top: 20px; }
 
-        .section-title { 
-            width: 100%; 
-            max-width: 1000px; 
-            color: var(--gold); 
-            font-size: 12px; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            margin: 25px 0 15px 0; 
-            border-left: 3px solid var(--gold); 
-            padding-left: 10px; 
-        }
-
-        .grid-tv { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
-            gap: 15px; 
-            width: 100%; 
-            max-width: 1000px; 
-        }
-
-        .channel-card { 
-            background: var(--card-bg); 
-            border: 1px solid #222; 
-            border-radius: 12px; 
-            padding: 20px; 
-            text-align: center; 
-            cursor: pointer; 
-            transition: 0.3s; 
-            text-decoration: none; 
-            color: white; 
-        }
-
-        .channel-card:hover { 
-            border-color: var(--gold); 
-            transform: translateY(-3px); 
-            background: #1a1a1a;
-        }
-
-        .badge { 
-            font-size: 9px; 
-            background: var(--gold); 
-            color: black; 
-            padding: 2px 8px; 
-            border-radius: 4px; 
-            font-weight: bold; 
-            display: inline-block; 
-            margin-bottom: 10px;
-        }
-
-        h3 { margin: 5px 0; font-size: 15px; letter-spacing: 1px; }
-        p { font-size: 11px; color: #666; margin: 0; }
-
-        .footer { margin: 50px 0 20px 0; color: #333; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
-
-        /* Ajuste para telas pequenas (Celular) */
-        @media (max-width: 600px) {
-            .grid-tv { grid-template-columns: repeat(2, 1fr); }
-            h1 { font-size: 18px; }
-        }
+        @media (max-width: 600px) { .grid-tv { grid-template-columns: repeat(2, 1fr); } h1 { font-size: 20px; } }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Black Gold TV</h1>
-        <p style="font-size: 10px; color: #888; letter-spacing: 2px;">PREMIUM STREAMING HUB</p>
-        <a href="https://meuguia.tv/" target="_blank" class="btn-grade">📅 Ver Grade de Programação</a>
+        <div class="nav-tools">
+            <a href="https://meuguia.tv/" target="_blank" class="btn-tool">📅 Grade de Programação</a>
+            <a href="https://www.google.com/search?q=previsão+do+tempo" target="_blank" class="btn-tool">☁️ Clima</a>
+        </div>
     </header>
 
-    <div class="section-title">Fé & Espiritualidade</div>
+    <div class="section-title">⛪ Fé & Espiritualidade</div>
     <div class="grid-tv">
         <a href="https://www.youtube.com/c/tvcancaonova/live" target="_blank" class="channel-card">
-            <span class="badge">AO VIVO</span>
-            <h3>CANÇÃO NOVA</h3>
-            <p>Evangelização</p>
-        </a>
-        <a href="https://www.youtube.com/@tvredevida/live" target="_blank" class="channel-card">
-            <span class="badge">AO VIVO</span>
-            <h3>REDE VIDA</h3>
-            <p>Família</p>
+            <span class="badge">AO VIVO</span><h3>Canção Nova</h3><p>Evangelização</p>
         </a>
         <a href="https://www.youtube.com/@tvaparecida/live" target="_blank" class="channel-card">
-            <span class="badge">AO VIVO</span>
-            <h3>TV APARECIDA</h3>
-            <p>Santuário</p>
+            <span class="badge">AO VIVO</span><h3>TV Aparecida</h3><p>Santuário</p>
+        </a>
+        <a href="https://www.youtube.com/@tvredevida/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span><h3>Rede Vida</h3><p>Família</p>
+        </a>
+        <a href="https://www.youtube.com/@TVPaiEterno/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span><h3>Pai Eterno</h3><p>Fé</p>
+        </a>
+        <a href="https://www.youtube.com/@tvevangelizaroficial/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span><h3>Evangelizar</h3><p>Pe. Reginaldo</p>
+        </a>
+        <a href="https://www.youtube.com/@RedeSeculo21/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span><h3>Século 21</h3><p>Conteúdo Cristão</p>
+        </a>
+        <a href="https://www.youtube.com/@TVNazare/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span><h3>TV Nazaré</h3><p>Religião</p>
+        </a>
+        <a href="https://www.youtube.com/@TVHorizonteOficial/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span><h3>TV Horizonte</h3><p>Minas Gerais</p>
+        </a>
+        <a href="https://www.youtube.com/@RedeImaculada/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span><h3>Imaculada</h3><p>Espiritualidade</p>
+        </a>
+        <a href="https://www.youtube.com/@TVKairós/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span><h3>TV Kairós</h3><p>Mensagem Cristã</p>
         </a>
     </div>
 
-    <div class="section-title">Canais Abertos</div>
+    <div class="section-title">📺 TV Aberta & Informação</div>
     <div class="grid-tv">
+        <a href="https://globoplay.globo.com/agora-na-tv/" target="_blank" class="channel-card" style="border-color: #444;">
+            <span class="badge" style="background:#fff">OFICIAL</span><h3>TV GLOBO</h3><p>Requer Login Grátis</p>
+        </a>
         <a href="https://www.youtube.com/c/sbt/live" target="_blank" class="channel-card">
-            <span class="badge">AO VIVO</span>
-            <h3>SBT</h3>
-            <p>Auditório e Novelas</p>
+            <span class="badge">AO VIVO</span><h3>SBT</h3><p>Entretenimento</p>
         </a>
         <a href="https://www.youtube.com/c/bandjornalismo/live" target="_blank" class="channel-card">
-            <span class="badge">AO VIVO</span>
-            <h3>BAND TV</h3>
-            <p>Notícias e Esporte</p>
+            <span class="badge">AO VIVO</span><h3>BAND TV</h3><p>Esporte/Notícia</p>
+        </a>
+        <a href="https://www.playplus.com/tv-ao-vivo" target="_blank" class="channel-card">
+            <span class="badge" style="background:#fff">OFICIAL</span><h3>RECORD TV</h3><p>Requer Login Grátis</p>
         </a>
         <a href="https://www.youtube.com/c/recordnews/live" target="_blank" class="channel-card">
-            <span class="badge">AO VIVO</span>
-            <h3>RECORD NEWS</h3>
-            <p>Jornalismo 24h</p>
+            <span class="badge">AO VIVO</span><h3>Record News</h3><p>Notícias 24h</p>
         </a>
         <a href="https://www.youtube.com/c/tvcultura/live" target="_blank" class="channel-card">
-            <span class="badge">AO VIVO</span>
-            <h3>TV CULTURA</h3>
-            <p>Desenhos e Arte</p>
+            <span class="badge">AO VIVO</span><h3>TV Cultura</h3><p>Educação</p>
         </a>
         <a href="https://www.youtube.com/c/jovempannews/live" target="_blank" class="channel-card">
-            <span class="badge">AO VIVO</span>
-            <h3>JOVEM PAN</h3>
-            <p>Opinião</p>
+            <span class="badge">AO VIVO</span><h3>Jovem Pan</h3><p>Opinião</p>
+        </a>
+        <a href="https://www.youtube.com/c/cnnbrasil/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span><h3>CNN Brasil</h3><p>Notícias</p>
         </a>
         <a href="https://www.youtube.com/user/tvbrasil/live" target="_blank" class="channel-card">
-            <span class="badge">AO VIVO</span>
-            <h3>TV BRASIL</h3>
-            <p>Sinal Público</p>
+            <span class="badge">AO VIVO</span><h3>TV Brasil</h3><p>Público</p>
+        </a>
+        <a href="https://www.youtube.com/c/SBTNews/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span><h3>SBT News</h3><p>Digital</p>
+        </a>
+        <a href="https://www.youtube.com/@redetv/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span><h3>Rede TV!</h3><p>Variedades</p>
+        </a>
+        <a href="https://www.youtube.com/@tvgazeta/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span><h3>TV Gazeta</h3><p>São Paulo</p>
+        </a>
+        <a href="https://www.youtube.com/@canalfutura/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span><h3>Futura</h3><p>Educativo</p>
+        </a>
+        <a href="https://www.youtube.com/@canalrural/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span><h3>Canal Rural</h3><p>Agro</p>
+        </a>
+        <a href="https://www.youtube.com/@TVCamara/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span><h3>Câmara</h3><p>Cidadania</p>
+        </a>
+        <a href="https://www.youtube.com/@tvsenado/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span><h3>Senado</h3><p>Cidadania</p>
+        </a>
+        <a href="https://pluto.tv/pt/live-tv/pluto-tv-cine-sucessos-br" target="_blank" class="channel-card" style="border-color: var(--gold);">
+            <span class="badge">FILMES</span><h3>Cine Sucessos</h3><p>Pluto TV Grátis</p>
+        </a>
+        <a href="https://www.youtube.com/@NetMoviesOficial/videos" target="_blank" class="channel-card" style="border-color: var(--gold);">
+            <span class="badge">FILMES</span><h3>NetMovies</h3><p>Cinema Grátis</p>
+        </a>
+        <a href="https://www.runtime.tv/" target="_blank" class="channel-card" style="border-color: var(--gold);">
+            <span class="badge">FILMES</span><h3>Runtime</h3><p>Séries e Filmes</p>
+        </a>
+        <a href="https://www.vix.com/tv" target="_blank" class="channel-card" style="border-color: var(--gold);">
+            <span class="badge">VOD</span><h3>ViX TV</h3><p>Grátis</p>
         </a>
     </div>
 
     <div class="footer">
-        © 2024 ENGENHEIRO ARQUITETO SOLUTIONS
+        SISTEMA DE ALTA PERFORMANCE • PROJETADO PELO ENGENHEIRO ARQUITETO
     </div>
 
 </body>

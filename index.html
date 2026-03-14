@@ -3,77 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLACK GOLD TV | CONSOLE</title>
+    <title>Black Gold | Premium TV Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body { background: #000; color: #D4AF37; font-family: 'Arial', sans-serif; margin: 0; padding: 0; overflow: hidden; }
-        
-        /* Moldura da TV */
-        .tv-container { 
-            display: flex; height: 100vh; width: 100vw; 
+        :root {
+            --gold: #D4AF37;
+            --dark: #0A0A0A;
+            --card-bg: #1A1A1A;
+            --text: #FFFFFF;
         }
 
-        /* Área do Vídeo */
-        .video-display { 
-            flex: 1; background: #050505; border: 4px solid #1a1a1a; position: relative;
+        body {
+            background-color: var(--dark);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        iframe { width: 100%; height: 100%; border: none; }
 
-        /* Painel de Canais Lateral (Não precisa navegar, só clicar) */
-        .sidebar { 
-            width: 300px; background: #0a0a0a; border-left: 2px solid #D4AF37;
-            overflow-y: auto; display: flex; flex-direction: column;
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--gold);
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 40px;
         }
 
-        .channel-btn { 
-            padding: 20px; border-bottom: 1px solid #1a1a1a; cursor: pointer;
-            text-decoration: none; color: #fff; font-weight: bold; font-size: 16px;
-            transition: 0.3s; display: flex; align-items: center;
+        h1 {
+            color: var(--gold);
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin: 0;
         }
-        .channel-btn:hover { background: #D4AF37; color: #000; }
-        .channel-btn span { font-size: 10px; color: #D4AF37; margin-right: 10px; border: 1px solid #D4AF37; padding: 2px 5px; }
-        .channel-btn:hover span { color: #000; border-color: #000; }
 
-        .cat-title { background: #1a1a1a; color: #D4AF37; padding: 10px; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
+        .grid-tv {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+        }
 
-        /* Esconder barra de rolagem */
-        .sidebar::-webkit-scrollbar { width: 5px; }
-        .sidebar::-webkit-scrollbar-thumb { background: #D4AF37; }
+        .channel-card {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+
+        .channel-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .channel-card i {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--gold);
+        }
+
+        .badge {
+            font-size: 10px;
+            background: var(--gold);
+            color: black;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .footer {
+            margin-top: 50px;
+            color: #555;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
 
-    <div class="tv-container">
-        <div class="video-display">
-            <iframe id="tv-player" src="https://www.youtube.com/embed/live_stream?channel=UC776E0S_VjA2-Y6f-fO4H0g&autoplay=1" allowfullscreen></iframe>
-        </div>
+    <header>
+        <h1>Black Gold TV</h1>
+        <p style="color: #888;">Canais Abertos • Sinal Digital • Alta Performance</p>
+    </header>
 
-        <div class="sidebar">
-            <div style="padding: 20px; text-align: center; border-bottom: 2px solid #D4AF37;">
-                <h2 style="margin: 0; font-size: 18px; letter-spacing: 3px;">BLACK GOLD</h2>
-            </div>
+    <div class="grid-tv">
+        <a href="https://www.youtube.com/c/sbt/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span>
+            <h3>SBT</h3>
+            <p>Entretenimento e Variedades</p>
+        </a>
 
-            <div class="cat-title">📍 Rio de Janeiro</div>
-            <div class="channel-btn" onclick="changeChannel('https://www.youtube.com/embed/live_stream?channel=UC776E0S_VjA2-Y6f-fO4H0g')"><span>LIVE</span> TV BRASIL RJ</div>
-            <div class="channel-btn" onclick="changeChannel('https://www.youtube.com/embed/live_stream?channel=UCF0UunLidid09V7N_G9n-ow')"><span>LIVE</span> RECORD NEWS</div>
-            
-            <div class="cat-title">🎬 Filmes & Cinema</div>
-            <div class="channel-btn" onclick="changeChannel('https://pluto.tv/pt/live-tv/pluto-tv-cine-sucessos-br')"><span>FILMES</span> PLUTO CINE</div>
-            <div class="channel-btn" onclick="changeChannel('https://www.youtube.com/embed/live_stream?channel=UC6XQx1tVz5E5qT8X0U5x8kA')"><span>FILMES</span> NETMOVIES</div>
-            
-            <div class="cat-title">⛪ Fé Católica</div>
-            <div class="channel-btn" onclick="changeChannel('https://www.youtube.com/embed/live_stream?channel=UC5m0h6uF6C_lE7W3K8pWq9g')"><span>FÉ</span> CANÇÃO NOVA</div>
-            <div class="channel-btn" onclick="changeChannel('https://www.youtube.com/embed/live_stream?channel=UC_7v-SOn1lF2ySg1J6kXm_w')"><span>FÉ</span> TV APARECIDA</div>
-            <div class="channel-btn" onclick="changeChannel('https://www.youtube.com/embed/live_stream?channel=UC8xY7P-vS8S4-W20lW2pWaw')"><span>FÉ</span> REDE VIDA</div>
-            <div class="channel-btn" onclick="changeChannel('https://www.youtube.com/embed/live_stream?channel=UCFv9Z0N8_w8Pz8V3f-v6z6Q')"><span>FÉ</span> PAI ETERNO</div>
-            <div class="channel-btn" onclick="changeChannel('https://www.youtube.com/@tvevangelizaroficial/live')"><span>FÉ</span> EVANGELIZAR</div>
-        </div>
+        <a href="https://www.youtube.com/c/bandjornalismo/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span>
+            <h3>BAND</h3>
+            <p>Notícias e Esportes</p>
+        </a>
+
+        <a href="https://www.youtube.com/c/recordnews/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span>
+            <h3>RECORD NEWS</h3>
+            <p>Jornalismo 24h</p>
+        </a>
+
+        <a href="https://www.youtube.com/c/tvcultura/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span>
+            <h3>TV CULTURA</h3>
+            <p>Educação e Cultura</p>
+        </a>
+
+        <a href="https://www.youtube.com/c/jovempannews/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span>
+            <h3>JOVEM PAN NEWS</h3>
+            <p>Opinião e Notícias</p>
+        </a>
+
+        <a href="https://www.youtube.com/user/tvbrasil/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span>
+            <h3>TV BRASIL</h3>
+            <p>Sinal Público Nacional</p>
+        </a>
     </div>
 
-    <script>
-        function changeChannel(url) {
-            document.getElementById('tv-player').src = url + "?autoplay=1";
-        }
-    </script>
+    <div class="footer">
+        SISTEMA PRIVADO • ENGENHEIRO ARQUITETO SOLUTIONS
+    </div>
 
 </body>
 </html>

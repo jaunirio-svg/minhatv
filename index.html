@@ -3,144 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black Gold | Premium TV Hub</title>
+    <title>Premium TV Hub | Portátil</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --gold: #D4AF37;
-            --dark: #0A0A0A;
-            --card-bg: #1A1A1A;
-            --text: #FFFFFF;
-        }
-
-        body {
-            background-color: var(--dark);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        header {
-            text-align: center;
-            padding: 40px 0;
-            border-bottom: 1px solid var(--gold);
-            width: 100%;
-            max-width: 1200px;
-            margin-bottom: 40px;
-        }
-
-        h1 {
-            color: var(--gold);
-            font-weight: 300;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin: 0;
-        }
-
-        .grid-tv {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            width: 100%;
-            max-width: 1200px;
-        }
-
-        .channel-card {
-            background: var(--card-bg);
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: white;
-            display: block;
-        }
-
-        .channel-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.1);
-        }
-
-        .channel-card i {
-            display: block;
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: var(--gold);
-        }
-
-        .badge {
-            font-size: 10px;
-            background: var(--gold);
-            color: black;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            display: inline-block;
-        }
-
-        .footer {
-            margin-top: 50px;
-            color: #555;
-            font-size: 12px;
-            letter-spacing: 1px;
-        }
+        :root { --gold: #D4AF37; --dark: #0A0A0A; --card-bg: #1A1A1A; --text: #FFFFFF; }
+        body { background-color: var(--dark); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        header { text-align: center; padding: 30px 0; border-bottom: 1px solid var(--gold); width: 100%; max-width: 1100px; margin-bottom: 30px; }
+        h1 { color: var(--gold); font-weight: 300; letter-spacing: 4px; text-transform: uppercase; margin: 0; }
+        .section-title { width: 100%; max-width: 1100px; color: var(--gold); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin: 20px 0 15px 0; border-left: 3px solid var(--gold); padding-left: 10px; }
+        .grid-tv { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; width: 100%; max-width: 1100px; margin-bottom: 40px; }
+        .channel-card { background: var(--card-bg); border: 1px solid #333; border-radius: 10px; padding: 15px; text-align: center; cursor: pointer; transition: 0.3s; text-decoration: none; color: white; }
+        .channel-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2); }
+        .badge { font-size: 9px; background: var(--gold); color: black; padding: 2px 6px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: inline-block; }
+        h3 { margin: 10px 0 5px 0; font-size: 16px; }
+        p { font-size: 12px; color: #888; margin: 0; }
+        .footer { margin-top: 40px; color: #444; font-size: 11px; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Black Gold TV</h1>
-        <p style="color: #888;">Canais Abertos • Sinal Digital • Alta Performance</p>
+        <p>SISTEMA PORTÁTIL DE ALTA PERFORMANCE</p>
     </header>
 
+    <div class="section-title">Fé & Espiritualidade</div>
+    <div class="grid-tv">
+        <a href="https://www.youtube.com/c/tvcancaonova/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span>
+            <h3>CANÇÃO NOVA</h3>
+            <p>Evangelização e Oração</p>
+        </a>
+        <a href="https://www.youtube.com/@tvredevida/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span>
+            <h3>REDE VIDA</h3>
+            <p>O Canal da Família</p>
+        </a>
+        <a href="https://www.youtube.com/@tvaparecida/live" target="_blank" class="channel-card">
+            <span class="badge">AO VIVO</span>
+            <h3>TV APARECIDA</h3>
+            <p>Santuário Nacional</p>
+        </a>
+    </div>
+
+    <div class="section-title">Canais Abertos & Notícias</div>
     <div class="grid-tv">
         <a href="https://www.youtube.com/c/sbt/live" target="_blank" class="channel-card">
             <span class="badge">AO VIVO</span>
             <h3>SBT</h3>
-            <p>Entretenimento e Variedades</p>
+            <p>Variedades</p>
         </a>
-
         <a href="https://www.youtube.com/c/bandjornalismo/live" target="_blank" class="channel-card">
             <span class="badge">AO VIVO</span>
             <h3>BAND</h3>
-            <p>Notícias e Esportes</p>
+            <p>Jornalismo/Esporte</p>
         </a>
-
         <a href="https://www.youtube.com/c/recordnews/live" target="_blank" class="channel-card">
             <span class="badge">AO VIVO</span>
             <h3>RECORD NEWS</h3>
-            <p>Jornalismo 24h</p>
+            <p>Notícias 24h</p>
         </a>
-
         <a href="https://www.youtube.com/c/tvcultura/live" target="_blank" class="channel-card">
             <span class="badge">AO VIVO</span>
             <h3>TV CULTURA</h3>
-            <p>Educação e Cultura</p>
-        </a>
-
-        <a href="https://www.youtube.com/c/jovempannews/live" target="_blank" class="channel-card">
-            <span class="badge">AO VIVO</span>
-            <h3>JOVEM PAN NEWS</h3>
-            <p>Opinião e Notícias</p>
-        </a>
-
-        <a href="https://www.youtube.com/user/tvbrasil/live" target="_blank" class="channel-card">
-            <span class="badge">AO VIVO</span>
-            <h3>TV BRASIL</h3>
-            <p>Sinal Público Nacional</p>
+            <p>Cultura e Educação</p>
         </a>
     </div>
 
     <div class="footer">
-        SISTEMA PRIVADO • ENGENHEIRO ARQUITETO SOLUTIONS
+        ENGENHEIRO ARQUITETO SOLUTIONS • MODO PORTÁTIL ATIVO
     </div>
 
 </body>
